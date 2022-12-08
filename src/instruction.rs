@@ -5,6 +5,10 @@ pub enum IntroInstruction {
     InitUserInput {
         name: String,
         message: String,
+    },
+    UpdateStudentIntro {
+        name: String,
+        message: String,
     }
 }
 
@@ -21,6 +25,10 @@ impl IntroInstruction {
 
         Ok(match variant {
             0 => Self::InitUserInput {
+                name: payload.name,
+                message: payload.message
+            },
+            1 => Self::UpdateStudentIntro {
                 name: payload.name,
                 message: payload.message
             },
